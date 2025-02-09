@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalhes do Colaborador</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000000; /* Cor do Corinthians */
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: white; /* Título em branco */
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #000000; /* Cabeçalho em preto */
+            color: white; /* Texto branco no cabeçalho */
+        }
+
+        tr:hover {
+            background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
+        }
+
+        a {
+            color: #000000; /* Links em preto */
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 2px solid #000000; /* Bordas pretas nos links */
+            border-radius: 5px;
+            background-color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: #000000; /* Fundo preto ao passar o mouse */
+            color: white; /* Texto branco ao passar o mouse */
+        }
+
+        .add-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000000; /* Botão com fundo preto */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .add-button:hover {
+            background-color: #333333; /* Fundo mais escuro ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Detalhes do Colaborador</h2>
+    </header>
+
+    <div class="container">
+        <!-- Exibe as informações do colaborador -->
+        <table>
+            <tr>
+                <th>ID</th>
+                <td th:text="${colaborador.idColaborador}"></td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td th:text="${colaborador.nome}"></td>
+            </tr>
+            <tr>
+                <th>Setor</th>
+                <td th:text="${colaborador.setor}"></td>
+            </tr>
+            <tr>
+                <th>Score</th>
+                <td th:text="${colaborador.score}"></td>
+            </tr>
+            <tr>
+                <th>Chefe</th>
+                <td th:text="${colaborador.chefe != null ? colaborador.chefe.nome : 'Nenhum'}"></td>
+            </tr>
+        </table>
+
+        <!-- Botões para voltar à lista e cadastrar novo colaborador -->
+        <a href="/colaborador/listar" class="add-button">Voltar à Lista</a>
+        <a href="/colaborador/cadastro" class="add-button">Cadastrar Novo Colaborador</a>
+    </div>
+
+</body>
+</html>

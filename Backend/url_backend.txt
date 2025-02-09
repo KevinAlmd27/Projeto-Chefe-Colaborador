@@ -1,0 +1,1 @@
+https://start.spring.io/starter.zip?name=Backend&groupId=com.dev.kevin&artifactId=Backend&version=0.0.1-SNAPSHOT&description=+Spring+Boot+backend&packageName=com.dev.kevin&type=maven-project&packaging=jar&javaVersion=21&language=java&bootVersion=3.4.2&dependencies=data-jpa&dependencies=mysql&dependencies=web

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Lista de Colaboradores</title>
+<style>
+body {
+	font-family: 'Arial', sans-serif;
+	background-color: #f4f4f9;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	background-color: #000000; /* Cor do Corinthians */
+	color: white;
+	padding: 15px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 2em;
+	color: white; /* Título em branco */
+	margin-bottom: 20px;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.message {
+	background-color: #f7f7f7; /* Cor clara para mensagem */
+	border: 1px solid #000000; /* Bordas pretas */
+	padding: 10px;
+	color: #000000; /* Texto preto */
+	margin-bottom: 20px;
+}
+
+table {
+	width: 100%;
+	margin-bottom: 20px;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 12px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+th {
+	background-color: #000000; /* Cabeçalho em preto */
+	color: white; /* Texto branco no cabeçalho */
+}
+
+tr:hover {
+	background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
+}
+
+a {
+	color: #000000; /* Links em preto */
+	text-decoration: none;
+	padding: 8px 15px;
+	border: 2px solid #000000; /* Bordas pretas nos links */
+	border-radius: 5px;
+	background-color: white;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+	background-color: #000000; /* Fundo preto ao passar o mouse */
+	color: white; /* Texto branco ao passar o mouse */
+}
+
+.add-button {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #000000; /* Botão com fundo preto */
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 5px;
+	font-weight: bold;
+	margin-top: 20px;
+	transition: background-color 0.3s;
+}
+
+.add-button:hover {
+	background-color: #333333; /* Fundo mais escuro ao passar o mouse */
+}
+
+.delete-button {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: red; /* Cor de fundo vermelha para excluir */
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 5px;
+	font-weight: bold;
+	transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+	background-color: #cc0000; /* Tom mais escuro ao passar o mouse */
+}
+</style>
+</head>
+<body>
+
+	<header>
+		<h2>Lista de Colaboradores</h2>
+	</header>
+
+	<div class="container">
+
+		<!-- Exibe a mensagem caso o cadastro tenha sido realizado -->
+		<div th:if="${message}" class="message">
+			<p th:text="${message}"></p>
+		</div>
+
+		<!-- Lista de colaboradores -->
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>Setor</th>
+					<!-- Coluna Setor -->
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="colaborador : ${colaboradores}">
+					<td th:text="${colaborador.idColaborador}"></td>
+					<td th:text="${colaborador.nome}"></td>
+					<td th:text="${colaborador.setor}"></td>
+					<!-- Exibe o Setor -->
+					<td><a
+						th:href="@{/colaborador/detalhes/{idColaborador}(idColaborador=${colaborador.idColaborador})}">Ver</a>
+						<!-- Formulário de Excluir -->
+						<form
+							th:action="@{/colaborador/excluir/{idColaborador}(id=${colaborador.idColaborador})}"
+							method="post">
+							<button type="submit" class="delete-button">Excluir</button>
+						</form></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<!-- Botão para acessar o formulário de cadastro -->
+		<a href="/colaborador/cadastro" class="add-button">Cadastrar Novo
+			Colaborador</a>
+
+		<!-- Botão para acessar o formulário de cadastro do chefe -->
+		<a href="/chefe/cadastro" class="add-button">Cadastrar Novo Chefe</a>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,877 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000002b1adda1050, pid=8624, tid=20352
+#
+# JRE version: OpenJDK Runtime Environment Temurin-21.0.5+11 (21.0.5+11) (build 21.0.5+11-LTS)
+# Java VM: OpenJDK 64-Bit Server VM Temurin-21.0.5+11 (21.0.5+11-LTS, mixed mode, emulated-client, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# v  ~BufferBlob::MethodHandles adapters 0x000002b1adda1050
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/adoptium/adoptium-support/issues
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:+ShowCodeDetailsInExceptionMessages -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:57639 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=57635 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -Dspring.application.admin.enabled=true -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=Backend -javaagent:C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\configuration\org.eclipse.osgi\275\0\.cp\lib\javaagent-shaded.jar -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 com.dev.kevin.BackendApplication --spring.output.ansi.enabled=always
+
+Host: AMD Ryzen 7 5700G with Radeon Graphics         , 16 cores, 23G,  Windows 11 , 64 bit Build 26100 (10.0.26100.712)
+Time: Wed Feb  5 13:20:52 2025 Hora oficial do Brasil elapsed time: 11.038386 seconds (0d 0h 0m 11s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002b1aa1d7100):  JavaThread "main"             [_thread_in_Java, id=20352, stack(0x000000ee86700000,0x000000ee86800000) (1024K)]
+
+Stack: [0x000000ee86700000,0x000000ee86800000],  sp=0x000000ee867fdf58,  free space=1015k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x000002b1adda1050
+
+The last pc belongs to _linkToSpecial (printed below).
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0xffffffffffffffff
+
+
+Registers:
+RAX=0x000002b1add79086, RBX=0xd1a9f1ef00000000, RCX=0x000000ee867fdf60, RDX=0x0000000000000002
+RSP=0x000000ee867fdf58, RBP=0x000000ee867fdfa8, RSI=0x000002b1ff16fce8, RDI=0x000002b1ff79c480
+R8 =0x0000000000000002, R9 =0x0000000000000002, R10=0x00007ffac7aed040, R11=0x000002b1bd0b5b20
+R12=0x0000000000000000, R13=0x000000ee867fdf58, R14=0x000000ee867fdfc8, R15=0x000002b1aa1d7100
+RIP=0x000002b1adda1050, EFLAGS=0x0000000000010202
+
+
+Register to memory mapping:
+
+RAX=0x000002b1add79086 is at code_begin+3078 in an Interpreter codelet
+return entry points  [0x000002b1add78480, 0x000002b1add7a298]  7704 bytes
+RBX=0xd1a9f1ef00000000 is an unknown value
+RCX=0x000000ee867fdf60 is pointing into the stack for thread: 0x000002b1aa1d7100
+RDX=0x0000000000000002 is an unknown value
+RSP=0x000000ee867fdf58 is pointing into the stack for thread: 0x000002b1aa1d7100
+RBP=0x000000ee867fdfa8 is pointing into the stack for thread: 0x000002b1aa1d7100
+RSI=0x000002b1ff16fce8 points into unknown readable memory: 0x8000181020c31521 | 21 15 c3 20 10 18 00 80
+RDI=0x000002b1ff79c480 points into unknown readable memory: 0x0000001800000070 | 70 00 00 00 18 00 00 00
+R8 =0x0000000000000002 is an unknown value
+R9 =0x0000000000000002 is an unknown value
+R10=0x00007ffac7aed040 jvm.dll
+R11={method} {0x000002b1bd0b5b28} 'newInvokeSpecial' '(Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder'
+R12=0x0 is null
+R13=0x000000ee867fdf58 is pointing into the stack for thread: 0x000002b1aa1d7100
+R14=0x000000ee867fdfc8 is pointing into the stack for thread: 0x000002b1aa1d7100
+R15=0x000002b1aa1d7100 is a thread
+
+Top of Stack: (sp=0x000000ee867fdf58)
+0x000000ee867fdf58:   000002b1add79086 000000ee867fdf60
+0x000000ee867fdf68:   000002b1bd72be1f 0000000000000004
+0x000000ee867fdf78:   000002b1bd0b0fd8 000000068a804098
+0x000000ee867fdf88:   0000000689a8def8 000002b1bd0b5b20
+0x000000ee867fdf98:   000000ee867fdf58 000000ee867fdfd0
+0x000000ee867fdfa8:   000000ee867fe340 000002b1ae1a574b
+0x000000ee867fdfb8:   000000068d4f8e80 000000068d4f8f28
+0x000000ee867fdfc8:   000000068d4f8ee0 000000068d4f8c40
+0x000000ee867fdfd8:   0000000000000000 000000ee867fe340
+0x000000ee867fdfe8:   000002b1ae7f198c 0000000000000000
+0x000000ee867fdff8:   0000000000000000 0000000000000000
+0x000000ee867fe008:   0000000000000000 0000000000000000
+0x000000ee867fe018:   0000000000000000 0000000000000000
+0x000000ee867fe028:   0000000000000000 0000000000000000
+0x000000ee867fe038:   0000000000000000 0000000000000000
+0x000000ee867fe048:   0000000689a8cf88 000000068a804098
+0x000000ee867fe058:   000000068d4f8b08 000000068d4f8b08
+0x000000ee867fe068:   000000068d4f8c40 000000068d4f8f10
+0x000000ee867fe078:   000000068d4f8c98 000000068a804098
+0x000000ee867fe088:   0000000000000001 000000ee867fe340
+0x000000ee867fe098:   000002b100000000 0000000000000000
+0x000000ee867fe0a8:   0000000000000000 000000068d4f8ee0
+0x000000ee867fe0b8:   000002b1ae1a18dc 0000000000000000
+0x000000ee867fe0c8:   0000000000000000 0000000000000000
+0x000000ee867fe0d8:   0000000000000000 000002b1aa1d7100
+0x000000ee867fe0e8:   0000000000000000 000000068d4f8c40
+0x000000ee867fe0f8:   0000000000000000 000000068d4f8b08
+0x000000ee867fe108:   000000068d4f8f10 000000068d4f8c40
+0x000000ee867fe118:   0000000000000000 000000068d4f8b00
+0x000000ee867fe128:   000002b1ae1a4c6c 000000ee867fe340
+0x000000ee867fe138:   000002b1ae1a0bea 0000000000000000
+0x000000ee867fe148:   000002b1ae0aef29 000002b1aa1d7100 
+
+Instructions: (pc=0x000002b1adda1050)
+0x000002b1adda0f50:   bf d8 05 00 00 00 74 03 ff 63 38 ff 63 50 e9 9d
+0x000002b1adda0f60:   16 00 00 66 66 66 0f 1f 84 00 00 00 00 00 66 0f
+0x000002b1adda0f70:   1f 84 00 00 00 00 00 66 0f 1f 84 00 00 00 00 00
+0x000002b1adda0f80:   48 8b 53 08 0f b7 52 2e 48 8b 0c d4 58 5b 50 44
+0x000002b1adda0f90:   8b 51 08 49 bb 00 00 00 bd b1 02 00 00 4d 03 d3
+0x000002b1adda0fa0:   4c 8b 5b 10 4b 8b 9c da c0 01 00 00 48 85 db 0f
+0x000002b1adda0fb0:   84 10 00 00 00 41 80 bf d8 05 00 00 00 74 03 ff
+0x000002b1adda0fc0:   63 38 ff 63 50 e9 36 16 00 00 66 66 66 0f 1f 84
+0x000002b1adda0fd0:   00 00 00 00 00 66 66 66 0f 1f 84 00 00 00 00 00
+0x000002b1adda0fe0:   58 5b 50 8b 5b 24 48 c1 e3 03 48 8b 5b 10 48 85
+0x000002b1adda0ff0:   db 0f 84 10 00 00 00 41 80 bf d8 05 00 00 00 74
+0x000002b1adda1000:   03 ff 63 38 ff 63 50 e9 f4 15 00 00 66 66 0f 1f
+0x000002b1adda1010:   84 00 00 00 00 00 66 66 0f 1f 84 00 00 00 00 00
+0x000002b1adda1020:   48 8b 53 08 0f b7 52 2e 48 8b 0c d4 58 5b 50 48
+0x000002b1adda1030:   3b 01 8b 5b 24 48 c1 e3 03 48 8b 5b 10 48 85 db
+0x000002b1adda1040:   0f 84 10 00 00 00 41 80 bf d8 05 00 00 00 74 03
+0x000002b1adda1050:   ff 63 38 ff 63 50 e9 a5 15 00 00 0f 1f 44 00 00
+0x000002b1adda1060:   48 8b 53 08 0f b7 52 2e 48 8b 0c d4 58 5b 50 44
+0x000002b1adda1070:   8b 51 08 49 bb 00 00 00 bd b1 02 00 00 4d 03 d3
+0x000002b1adda1080:   8b 43 18 48 c1 e0 03 48 8b 40 10 48 8b 5b 10 45
+0x000002b1adda1090:   8b 9a a0 00 00 00 4f 8d 9c da c0 01 00 00 4d 8d
+0x000002b1adda10a0:   14 da 49 8b 1b 48 3b c3 74 15 48 85 db 0f 84 32
+0x000002b1adda10b0:   00 00 00 49 83 c3 10 49 8b 1b 48 3b c3 75 eb 45
+0x000002b1adda10c0:   8b 5b 08 4b 8b 1c 1a 48 85 db 0f 84 10 00 00 00
+0x000002b1adda10d0:   41 80 bf d8 05 00 00 00 74 03 ff 63 38 ff 63 50
+0x000002b1adda10e0:   e9 1b 15 00 00 e9 16 12 00 00 f4 00 00 00 00 00
+0x000002b1adda10f0:   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x000002b1adda1100:   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x000002b1adda1110:   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x000002b1adda1120:   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x000002b1adda1130:   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x000002b1adda1140:   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+Stack slot to memory mapping:
+
+stack at sp + 0 slots: 0x000002b1add79086 is at code_begin+3078 in an Interpreter codelet
+return entry points  [0x000002b1add78480, 0x000002b1add7a298]  7704 bytes
+stack at sp + 1 slots: 0x000000ee867fdf60 is pointing into the stack for thread: 0x000002b1aa1d7100
+stack at sp + 2 slots: 0x000002b1bd72be1f is pointing into metadata
+stack at sp + 3 slots: 0x0000000000000004 is an unknown value
+stack at sp + 4 slots: 0x000002b1bd0b0fd8 is pointing into metadata
+stack at sp + 5 slots: 0x000000068a804098 is an oop: java.lang.Class 
+{0x000000068a804098} - klass: 'java/lang/Class'
+ - ---- fields (total size 14 words):
+ - private volatile transient 'classRedefinedCount' 'I' @12  1 (0x00000001)
+ - injected 'klass' 'J' @16  2962423397808 (0x000002b1be31bdb0)
+ - injected 'array_klass' 'J' @24  0 (0x0000000000000000)
+ - injected 'oop_size' 'I' @32  14 (0x0000000e)
+ - injected 'static_oop_field_count' 'I' @36  0 (0x00000000)
+ - private volatile transient 'cachedConstructor' 'Ljava/lang/reflect/Constructor;' @40  null (0x00000000)
+ - private transient 'name' 'Ljava/lang/String;' @44  "com.dev.kevin.controller.ColaboradorController"{0x000000068a804108} (0xd1500821)
+ - private transient 'module' 'Ljava/lang/Module;' @48  a 'java/lang/Module'{0x0000000689a7db30} (0xd134fb66)
+ - private final 'classLoader' 'Ljava/lang/ClassLoader;' @52  a 'jdk/internal/loader/ClassLoaders$AppClassLoader'{0x0000000689a7d828} (0xd134fb05)
+ - private transient 'classData' 'Ljava/lang/Object;' @56  null (0x00000000)
+ - private transient 'packageName' 'Ljava/lang/String;' @60  "com.dev.kevin.controller"{0x000000068a804160} (0xd150082c)
+ - private final 'componentType' 'Ljava/lang/Class;' @64  null (0x00000000)
+ - private volatile transient 'reflectionData' 'Ljava/lang/ref/SoftReference;' @68  a 'java/lang/ref/SoftReference'{0x000000068a8041a0} (0xd1500834)
+ - private volatile transient 'genericInfo' 'Lsun/reflect/generics/repository/ClassRepository;' @72  null (0x00000000)
+ - private volatile transient 'enumConstants' '[Ljava/lang/Object;' @76  null (0x00000000)
+ - private volatile transient 'enumConstantDirectory' 'Ljava/util/Map;' @80  null (0x00000000)
+ - private volatile transient 'annotationData' 'Ljava/lang/Class$AnnotationData;' @84  a 'java/lang/Class$AnnotationData'{0x000000068a804218} (0xd1500843)
+ - private volatile transient 'annotationType' 'Lsun/reflect/annotation/AnnotationType;' @88  null (0x00000000)
+ - transient 'classValueMap' 'Ljava/lang/ClassValue$ClassValueMap;' @92  null (0x00000000)
+ - injected 'protection_domain' 'Ljava/lang/Object;' @96  a 'java/security/ProtectionDomain'{0x000000068a05f418} (0xd140be83)
+ - injected 'signers_name' 'Ljava/lang/Object;' @100  null (0x00000000)
+ - injected 'source_file' 'Ljava/lang/Object;' @104  null (0x00000000)
+ - injected '<init_lock>' 'Ljava/lang/Object;' @108  null (0x00000000)
+ - signature: Lcom/dev/kevin/controller/ColaboradorController;
+ - ---- static fields (0):
+stack at sp + 6 slots: 0x0000000689a8def8 is an oop: java.lang.Class 
+{0x0000000689a8def8} - klass: 'java/lang/Class'
+ - ---- fields (total size 14 words):
+ - private volatile transient 'classRedefinedCount' 'I' @12  0 (0x00000000)
+ - injected 'klass' 'J' @16  2962404084656 (0x000002b1bd0b0bb0)
+ - injected 'array_klass' 'J' @24  0 (0x0000000000000000)
+ - injected 'oop_size' 'I' @32  14 (0x0000000e)
+ - injected 'static_oop_field_count' 'I' @36  0 (0x00000000)
+ - private volatile transient 'cachedConstructor' 'Ljava/lang/reflect/Constructor;' @40  null (0x00000000)
+ - private transient 'name' 'Ljava/lang/String;' @44  null (0x00000000)
+ - private transient 'module' 'Ljava/lang/Module;' @48  a 'java/lang/Module'{0x0000000689a9bbf0} (0xd135377e)
+ - private final 'classLoader' 'Ljava/lang/ClassLoader;' @52  null (0x00000000)
+ - private transient 'classData' 'Ljava/lang/Object;' @56  null (0x00000000)
+ - private transient 'packageName' 'Ljava/lang/String;' @60  null (0x00000000)
+ - private final 'componentType' 'Ljava/lang/Class;' @64  null (0x00000000)
+ - private volatile transient 'reflectionData' 'Ljava/lang/ref/SoftReference;' @68  null (0x00000000)
+ - private volatile transient 'genericInfo' 'Lsun/reflect/generics/repository/ClassRepository;' @72  null (0x00000000)
+ - private volatile transient 'enumConstants' '[Ljava/lang/Object;' @76  null (0x00000000)
+ - private volatile transient 'enumConstantDirectory' 'Ljava/util/Map;' @80  null (0x00000000)
+ - private volatile transient 'annotationData' 'Ljava/lang/Class$AnnotationData;' @84  null (0x00000000)
+ - private volatile transient 'annotationType' 'Lsun/reflect/annotation/AnnotationType;' @88  null (0x00000000)
+ - transient 'classValueMap' 'Ljava/lang/ClassValue$ClassValueMap;' @92  null (0x00000000)
+ - injected 'protection_domain' 'Ljava/lang/Object;' @96  null (0x00000000)
+ - injected 'signers_name' 'Ljava/lang/Object;' @100  null (0x00000000)
+ - injected 'source_file' 'Ljava/lang/Object;' @104  null (0x00000000)
+ - injected '<init_lock>' 'Ljava/lang/Object;' @108  null (0x00000000)
+ - signature: Ljava/lang/invoke/DirectMethodHandle$Holder;
+ - ---- static fields (0):
+stack at sp + 7 slots: {method} {0x000002b1bd0b5b28} 'newInvokeSpecial' '(Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder'
+
+MethodHandle::interpreter_entry::_linkToSpecial [0x000002b1adda100c, 0x000002b1adda105b] (79 bytes)
+[MachCode]
+  0x000002b1adda100c: 6666 0f1f | 8400 0000 | 0000 6666 | 0f1f 8400 | 0000 0000 | 488b 5308 | 0fb7 522e | 488b 0cd4 
+  0x000002b1adda102c: 585b 5048 | 3b01 8b5b | 2448 c1e3 | 0348 8b5b | 1048 85db | 0f84 1000 | 0000 4180 | bfd8 0500 
+  0x000002b1adda104c: 0000 7403 | ff63 38ff | 6350 e9a5 | 
+[/MachCode]
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000002b1fefdae60, length=25, elements={
+0x000002b1aa1d7100, 0x000002b1bc22dbc0, 0x000002b1bc22f1c0, 0x000002b1bc237c90,
+0x000002b1bc235bc0, 0x000002b1bc235530, 0x000002b1bc2368e0, 0x000002b1bc255a30,
+0x000002b1bc238320, 0x000002b1bc3cded0, 0x000002b1bc3d9720, 0x000002b1bc3e21b0,
+0x000002b1bc234ea0, 0x000002b1bc236250, 0x000002b1bc236f70, 0x000002b1bc237600,
+0x000002b1fe8af210, 0x000002b1fe8aff30, 0x000002b1fe8ae4f0, 0x000002b1fe8af8a0,
+0x000002b1fe8b12e0, 0x000002b1fe8aeb80, 0x000002b1fe8ade60, 0x000002b1fe8b1970,
+0x000002b1fe8b2000
+}
+
+Java Threads: ( => current thread )
+=>0x000002b1aa1d7100 JavaThread "main"                              [_thread_in_Java, id=20352, stack(0x000000ee86700000,0x000000ee86800000) (1024K)]
+  0x000002b1bc22dbc0 JavaThread "Reference Handler"          daemon [_thread_blocked, id=18000, stack(0x000000ee86f00000,0x000000ee87000000) (1024K)]
+  0x000002b1bc22f1c0 JavaThread "Finalizer"                  daemon [_thread_blocked, id=20032, stack(0x000000ee87000000,0x000000ee87100000) (1024K)]
+  0x000002b1bc237c90 JavaThread "Signal Dispatcher"          daemon [_thread_blocked, id=11444, stack(0x000000ee87100000,0x000000ee87200000) (1024K)]
+  0x000002b1bc235bc0 JavaThread "Attach Listener"            daemon [_thread_blocked, id=20716, stack(0x000000ee87200000,0x000000ee87300000) (1024K)]
+  0x000002b1bc235530 JavaThread "Service Thread"             daemon [_thread_blocked, id=3820, stack(0x000000ee87300000,0x000000ee87400000) (1024K)]
+  0x000002b1bc2368e0 JavaThread "Monitor Deflation Thread"   daemon [_thread_blocked, id=18260, stack(0x000000ee87400000,0x000000ee87500000) (1024K)]
+  0x000002b1bc255a30 JavaThread "C1 CompilerThread0"         daemon [_thread_blocked, id=3824, stack(0x000000ee87500000,0x000000ee87600000) (1024K)]
+  0x000002b1bc238320 JavaThread "Common-Cleaner"             daemon [_thread_blocked, id=20384, stack(0x000000ee87600000,0x000000ee87700000) (1024K)]
+  0x000002b1bc3cded0 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_blocked, id=9688, stack(0x000000ee87a00000,0x000000ee87b00000) (1024K)]
+  0x000002b1bc3d9720 JavaThread "JDWP Event Helper Thread"   daemon [_thread_blocked, id=18712, stack(0x000000ee87b00000,0x000000ee87c00000) (1024K)]
+  0x000002b1bc3e21b0 JavaThread "JDWP Command Reader"        daemon [_thread_in_native, id=4740, stack(0x000000ee87c00000,0x000000ee87d00000) (1024K)]
+  0x000002b1bc234ea0 JavaThread "Notification Thread"        daemon [_thread_blocked, id=15156, stack(0x000000ee87d00000,0x000000ee87e00000) (1024K)]
+  0x000002b1bc236250 JavaThread "RMI TCP Accept-0"           daemon [_thread_in_native, id=16400, stack(0x000000ee88600000,0x000000ee88700000) (1024K)]
+  0x000002b1bc236f70 JavaThread "RMI TCP Accept-57635"       daemon [_thread_in_native, id=20020, stack(0x000000ee88700000,0x000000ee88800000) (1024K)]
+  0x000002b1bc237600 JavaThread "RMI TCP Accept-0"           daemon [_thread_in_native, id=9880, stack(0x000000ee88800000,0x000000ee88900000) (1024K)]
+  0x000002b1fe8af210 JavaThread "RMI TCP Connection(1)-127.0.0.1" daemon [_thread_in_native, id=17324, stack(0x000000ee88c00000,0x000000ee88d00000) (1024K)]
+  0x000002b1fe8aff30 JavaThread "RMI Scheduler(0)"           daemon [_thread_blocked, id=16256, stack(0x000000ee88d00000,0x000000ee88e00000) (1024K)]
+  0x000002b1fe8ae4f0 JavaThread "RMI TCP Connection(2)-127.0.0.1" daemon [_thread_in_native, id=15548, stack(0x000000ee88e00000,0x000000ee88f00000) (1024K)]
+  0x000002b1fe8af8a0 JavaThread "JMX server connection timeout 50" daemon [_thread_blocked, id=21424, stack(0x000000ee88f00000,0x000000ee89000000) (1024K)]
+  0x000002b1fe8b12e0 JavaThread "Catalina-utility-1"                [_thread_blocked, id=10760, stack(0x000000ee89000000,0x000000ee89100000) (1024K)]
+  0x000002b1fe8aeb80 JavaThread "Catalina-utility-2"                [_thread_blocked, id=19760, stack(0x000000ee89600000,0x000000ee89700000) (1024K)]
+  0x000002b1fe8ade60 JavaThread "container-0"                       [_thread_blocked, id=19600, stack(0x000000ee89700000,0x000000ee89800000) (1024K)]
+  0x000002b1fe8b1970 JavaThread "mysql-cj-abandoned-connection-cleanup" daemon [_thread_blocked, id=3148, stack(0x000000ee89800000,0x000000ee89900000) (1024K)]
+  0x000002b1fe8b2000 JavaThread "HikariPool-1 housekeeper"   daemon [_thread_blocked, id=18840, stack(0x000000ee89a00000,0x000000ee89b00000) (1024K)]
+Total: 25
+
+Other Threads:
+  0x000002b1b9300900 VMThread "VM Thread"                           [id=17668, stack(0x000000ee86e00000,0x000000ee86f00000) (1024K)]
+  0x000002b1b92ec6c0 WatcherThread "VM Periodic Task Thread"        [id=18244, stack(0x000000ee86d00000,0x000000ee86e00000) (1024K)]
+  0x000002b1aa25cf30 WorkerThread "GC Thread#0"                     [id=10864, stack(0x000000ee86800000,0x000000ee86900000) (1024K)]
+  0x000002b1fe3af1a0 WorkerThread "GC Thread#1"                     [id=20320, stack(0x000000ee87e00000,0x000000ee87f00000) (1024K)]
+  0x000002b1fe3af540 WorkerThread "GC Thread#2"                     [id=14600, stack(0x000000ee87f00000,0x000000ee88000000) (1024K)]
+  0x000002b1fe3af8e0 WorkerThread "GC Thread#3"                     [id=6856, stack(0x000000ee88000000,0x000000ee88100000) (1024K)]
+  0x000002b1fe3afc80 WorkerThread "GC Thread#4"                     [id=17784, stack(0x000000ee88100000,0x000000ee88200000) (1024K)]
+  0x000002b1fe3b0230 WorkerThread "GC Thread#5"                     [id=280, stack(0x000000ee88200000,0x000000ee88300000) (1024K)]
+  0x000002b1fe3b0bf0 WorkerThread "GC Thread#6"                     [id=18316, stack(0x000000ee88300000,0x000000ee88400000) (1024K)]
+  0x000002b1fe3b1bc0 WorkerThread "GC Thread#7"                     [id=20408, stack(0x000000ee88400000,0x000000ee88500000) (1024K)]
+  0x000002b1fe3b2370 WorkerThread "GC Thread#8"                     [id=2044, stack(0x000000ee88500000,0x000000ee88600000) (1024K)]
+  0x000002b1fe858380 WorkerThread "GC Thread#9"                     [id=15840, stack(0x000000ee88900000,0x000000ee88a00000) (1024K)]
+  0x000002b1fe857500 WorkerThread "GC Thread#10"                    [id=20176, stack(0x000000ee88a00000,0x000000ee88b00000) (1024K)]
+  0x000002b1fe856dc0 WorkerThread "GC Thread#11"                    [id=11708, stack(0x000000ee88b00000,0x000000ee88c00000) (1024K)]
+  0x000002b1fe857fe0 WorkerThread "GC Thread#12"                    [id=21240, stack(0x000000ee89100000,0x000000ee89200000) (1024K)]
+  0x000002b1aa288130 ConcurrentGCThread "G1 Main Marker"            [id=7900, stack(0x000000ee86900000,0x000000ee86a00000) (1024K)]
+  0x000002b1aa288b40 WorkerThread "G1 Conc#0"                       [id=15248, stack(0x000000ee86a00000,0x000000ee86b00000) (1024K)]
+  0x000002b1fe858720 WorkerThread "G1 Conc#1"                       [id=12516, stack(0x000000ee89400000,0x000000ee89500000) (1024K)]
+  0x000002b1fe857160 WorkerThread "G1 Conc#2"                       [id=15860, stack(0x000000ee89500000,0x000000ee89600000) (1024K)]
+  0x000002b1b91bd3f0 ConcurrentGCThread "G1 Refine#0"               [id=12836, stack(0x000000ee86b00000,0x000000ee86c00000) (1024K)]
+  0x000002b1b91bde70 ConcurrentGCThread "G1 Service"                [id=8060, stack(0x000000ee86c00000,0x000000ee86d00000) (1024K)]
+Total: 21
+
+Threads with active compile tasks:
+Total: 0
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x0000000689800000, size: 5992 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x000002b1bd000000-0x000002b1bdc80000-0x000002b1bdc80000), size 13107200, SharedBaseAddress: 0x000002b1bd000000, ArchiveRelocationMode: 1.
+Compressed class space mapped at: 0x000002b1be000000-0x000002b1fe000000, reserved size: 1073741824
+Narrow klass base: 0x000002b1bd000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 32 size 80 Howl #buckets 8 coarsen threshold 7372 Howl Bitmap #cards 1024 size 144 coarsen threshold 921 Card regions per heap region 1 cards per card region 8192
+ CPUs: 16 total, 16 available
+ Memory: 23953M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Heap Region Size: 4M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 376M
+ Heap Max Capacity: 5992M
+ Pre-touch: Disabled
+ Parallel Workers: 13
+ Concurrent Workers: 3
+ Concurrent Refinement Workers: 13
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 90112K, used 49942K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 9 young (36864K), 2 survivors (8192K)
+ Metaspace       used 59971K, committed 60672K, reserved 1114112K
+  class space    used 8227K, committed 8576K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TAMS=top-at-mark-start, PB=parsable bottom
+|   0|0x0000000689800000, 0x0000000689c00000, 0x0000000689c00000|100%| O|  |TAMS 0x0000000689800000| PB 0x0000000689800000| Untracked 
+|   1|0x0000000689c00000, 0x000000068a000000, 0x000000068a000000|100%| O|  |TAMS 0x0000000689c00000| PB 0x0000000689c00000| Untracked 
+|   2|0x000000068a000000, 0x000000068a400000, 0x000000068a400000|100%| O|  |TAMS 0x000000068a000000| PB 0x000000068a000000| Untracked 
+|   3|0x000000068a400000, 0x000000068a797ac0, 0x000000068a800000| 89%| O|  |TAMS 0x000000068a400000| PB 0x000000068a400000| Untracked 
+|   4|0x000000068a800000, 0x000000068abfd548, 0x000000068ac00000| 99%| O|  |TAMS 0x000000068a800000| PB 0x000000068a800000| Untracked 
+|   5|0x000000068ac00000, 0x000000068ac00000, 0x000000068b000000|  0%| F|  |TAMS 0x000000068ac00000| PB 0x000000068ac00000| Untracked 
+|   6|0x000000068b000000, 0x000000068b000000, 0x000000068b400000|  0%| F|  |TAMS 0x000000068b000000| PB 0x000000068b000000| Untracked 
+|   7|0x000000068b400000, 0x000000068b530b40, 0x000000068b800000| 29%| S|CS|TAMS 0x000000068b400000| PB 0x000000068b400000| Complete 
+|   8|0x000000068b800000, 0x000000068bc00000, 0x000000068bc00000|100%| S|CS|TAMS 0x000000068b800000| PB 0x000000068b800000| Complete 
+|   9|0x000000068bc00000, 0x000000068bc00000, 0x000000068c000000|  0%| F|  |TAMS 0x000000068bc00000| PB 0x000000068bc00000| Untracked 
+|  10|0x000000068c000000, 0x000000068c000000, 0x000000068c400000|  0%| F|  |TAMS 0x000000068c000000| PB 0x000000068c000000| Untracked 
+|  11|0x000000068c400000, 0x000000068c400000, 0x000000068c800000|  0%| F|  |TAMS 0x000000068c400000| PB 0x000000068c400000| Untracked 
+|  12|0x000000068c800000, 0x000000068c800000, 0x000000068cc00000|  0%| F|  |TAMS 0x000000068c800000| PB 0x000000068c800000| Untracked 
+|  13|0x000000068cc00000, 0x000000068cc00000, 0x000000068d000000|  0%| F|  |TAMS 0x000000068cc00000| PB 0x000000068cc00000| Untracked 
+|  14|0x000000068d000000, 0x000000068d000000, 0x000000068d400000|  0%| F|  |TAMS 0x000000068d000000| PB 0x000000068d000000| Untracked 
+|  15|0x000000068d400000, 0x000000068d69bcb8, 0x000000068d800000| 65%| E|  |TAMS 0x000000068d400000| PB 0x000000068d400000| Complete 
+|  16|0x000000068d800000, 0x000000068dc00000, 0x000000068dc00000|100%| E|CS|TAMS 0x000000068d800000| PB 0x000000068d800000| Complete 
+|  17|0x000000068dc00000, 0x000000068e000000, 0x000000068e000000|100%| E|CS|TAMS 0x000000068dc00000| PB 0x000000068dc00000| Complete 
+|  18|0x000000068e000000, 0x000000068e400000, 0x000000068e400000|100%| E|CS|TAMS 0x000000068e000000| PB 0x000000068e000000| Complete 
+|  42|0x0000000694000000, 0x0000000694400000, 0x0000000694400000|100%| E|CS|TAMS 0x0000000694000000| PB 0x0000000694000000| Complete 
+|  43|0x0000000694400000, 0x0000000694800000, 0x0000000694800000|100%| E|CS|TAMS 0x0000000694400000| PB 0x0000000694400000| Complete 
+|  93|0x00000006a0c00000, 0x00000006a1000000, 0x00000006a1000000|100%| E|CS|TAMS 0x00000006a0c00000| PB 0x00000006a0c00000| Complete 
+
+Card table byte_map: [0x000002b1b2720000,0x000002b1b32e0000] _byte_map_base: 0x000002b1af2d4000
+
+Marking Bits: (CMBitMap*) 0x000002b1aa25d540
+ Bits: [0x000002b1b32e0000, 0x000002b1b9080000)
+
+Polling page: 0x000002b1a8910000
+
+Metaspace:
+
+Usage:
+  Non-class:     50.53 MB used.
+      Class:      8.03 MB used.
+       Both:     58.57 MB used.
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,      50.88 MB ( 79%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,       8.38 MB ( <1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,      59.25 MB (  5%) committed. 
+
+Chunk freelists:
+   Non-Class:  12.20 MB
+       Class:  7.48 MB
+        Both:  19.68 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 78.06 MB
+CDS: on
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - use_allocation_guard: 0.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 6.
+num_arena_births: 934.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 948.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 6.
+num_chunks_taken_from_freelist: 2934.
+num_chunk_merges: 6.
+num_chunk_splits: 2118.
+num_chunks_enlarged: 1619.
+num_inconsistent_stats: 0.
+
+CodeCache: size=49152Kb used=10334Kb max_used=13100Kb free=38817Kb
+ bounds [0x000002b1add70000, 0x000002b1aea40000, 0x000002b1b0d70000]
+ total_blobs=6006 nmethods=5280 adapters=649
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 7.302 Thread 0x000002b1bc255a30 5329       1       sun.rmi.runtime.Log$LoggerLog::isLoggable (9 bytes)
+Event: 7.302 Thread 0x000002b1bc255a30 nmethod 5329 0x000002b1ae50c910 code [0x000002b1ae50caa0, 0x000002b1ae50cbb0]
+Event: 7.303 Thread 0x000002b1bc255a30 5330       1       java.io.ObjectInputStream$PeekInputStream::peek (49 bytes)
+Event: 7.303 Thread 0x000002b1bc255a30 nmethod 5330 0x000002b1ae50c590 code [0x000002b1ae50c740, 0x000002b1ae50c8a0]
+Event: 7.303 Thread 0x000002b1bc255a30 5331       1       sun.util.logging.internal.LoggingProviderImpl$JULWrapper::toJUL (40 bytes)
+Event: 7.303 Thread 0x000002b1bc255a30 nmethod 5331 0x000002b1ae50c210 code [0x000002b1ae50c3c0, 0x000002b1ae50c4e0]
+Event: 8.307 Thread 0x000002b1bc255a30 5332       1       java.io.ObjectInputStream$BlockDataInputStream::readByte (20 bytes)
+Event: 8.307 Thread 0x000002b1bc255a30 nmethod 5332 0x000002b1ae50bd90 code [0x000002b1ae50bf40, 0x000002b1ae50c0f8]
+Event: 8.307 Thread 0x000002b1bc255a30 5333       1       java.io.ObjectInputStream$BlockDataInputStream::read (62 bytes)
+Event: 8.307 Thread 0x000002b1bc255a30 nmethod 5333 0x000002b1ae50b890 code [0x000002b1ae50ba60, 0x000002b1ae50bc48]
+Event: 8.307 Thread 0x000002b1bc255a30 5334       1       java.io.ObjectInputStream$PeekInputStream::read (47 bytes)
+Event: 8.307 Thread 0x000002b1bc255a30 nmethod 5334 0x000002b1ae50b510 code [0x000002b1ae50b6c0, 0x000002b1ae50b820]
+Event: 8.841 Thread 0x000002b1bc255a30 5335       1       java.lang.ThreadLocal::set (26 bytes)
+Event: 8.841 Thread 0x000002b1bc255a30 nmethod 5335 0x000002b1ae50b090 code [0x000002b1ae50b260, 0x000002b1ae50b428]
+Event: 9.344 Thread 0x000002b1bc255a30 5336       1       java.lang.ThreadLocal::set (18 bytes)
+Event: 9.344 Thread 0x000002b1bc255a30 nmethod 5336 0x000002b1ae50ab90 code [0x000002b1ae50ad60, 0x000002b1ae50af20]
+Event: 10.852 Thread 0x000002b1bc255a30 5338       1       java.io.ObjectInputStream$BlockDataInputStream::peekByte (20 bytes)
+Event: 10.852 Thread 0x000002b1bc255a30 nmethod 5338 0x000002b1ae50a290 code [0x000002b1ae50a440, 0x000002b1ae50a5f8]
+Event: 10.852 Thread 0x000002b1bc255a30 5339       1       java.io.ObjectInputStream$BlockDataInputStream::peek (55 bytes)
+Event: 10.852 Thread 0x000002b1bc255a30 nmethod 5339 0x000002b1ae509d90 code [0x000002b1ae509f60, 0x000002b1ae50a140]
+
+GC Heap History (20 events):
+Event: 0.917 GC heap before
+{Heap before GC invocations=5 (full 0):
+ garbage-first heap   total 40960K, used 39464K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 8 young (32768K), 1 survivors (4096K)
+ Metaspace       used 18896K, committed 19200K, reserved 1114112K
+  class space    used 2382K, committed 2496K, reserved 1048576K
+}
+Event: 0.919 GC heap after
+{Heap after GC invocations=6 (full 0):
+ garbage-first heap   total 49152K, used 11499K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 2 young (8192K), 2 survivors (8192K)
+ Metaspace       used 18896K, committed 19200K, reserved 1114112K
+  class space    used 2382K, committed 2496K, reserved 1048576K
+}
+Event: 0.950 GC heap before
+{Heap before GC invocations=6 (full 0):
+ garbage-first heap   total 49152K, used 31979K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 7 young (28672K), 2 survivors (8192K)
+ Metaspace       used 20231K, committed 20608K, reserved 1114112K
+  class space    used 2566K, committed 2752K, reserved 1048576K
+}
+Event: 0.953 GC heap after
+{Heap after GC invocations=7 (full 0):
+ garbage-first heap   total 49152K, used 11699K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 1 survivors (4096K)
+ Metaspace       used 20231K, committed 20608K, reserved 1114112K
+  class space    used 2566K, committed 2752K, reserved 1048576K
+}
+Event: 1.031 GC heap before
+{Heap before GC invocations=7 (full 0):
+ garbage-first heap   total 49152K, used 36275K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 7 young (28672K), 1 survivors (4096K)
+ Metaspace       used 22299K, committed 22656K, reserved 1114112K
+  class space    used 2838K, committed 3008K, reserved 1048576K
+}
+Event: 1.034 GC heap after
+{Heap after GC invocations=8 (full 0):
+ garbage-first heap   total 217088K, used 13200K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 1 survivors (4096K)
+ Metaspace       used 22299K, committed 22656K, reserved 1114112K
+  class space    used 2838K, committed 3008K, reserved 1048576K
+}
+Event: 1.526 GC heap before
+{Heap before GC invocations=8 (full 0):
+ garbage-first heap   total 217088K, used 95120K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 22 young (90112K), 1 survivors (4096K)
+ Metaspace       used 27913K, committed 28480K, reserved 1114112K
+  class space    used 3676K, committed 3968K, reserved 1048576K
+}
+Event: 1.529 GC heap after
+{Heap after GC invocations=9 (full 0):
+ garbage-first heap   total 217088K, used 17182K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 2 young (8192K), 2 survivors (8192K)
+ Metaspace       used 27913K, committed 28480K, reserved 1114112K
+  class space    used 3676K, committed 3968K, reserved 1048576K
+}
+Event: 1.822 GC heap before
+{Heap before GC invocations=10 (full 0):
+ garbage-first heap   total 69632K, used 66334K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 14 young (57344K), 2 survivors (8192K)
+ Metaspace       used 31773K, committed 32320K, reserved 1114112K
+  class space    used 4235K, committed 4480K, reserved 1048576K
+}
+Event: 1.825 GC heap after
+{Heap after GC invocations=11 (full 0):
+ garbage-first heap   total 81920K, used 19013K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 3 young (12288K), 3 survivors (12288K)
+ Metaspace       used 31773K, committed 32320K, reserved 1114112K
+  class space    used 4235K, committed 4480K, reserved 1048576K
+}
+Event: 1.985 GC heap before
+{Heap before GC invocations=11 (full 0):
+ garbage-first heap   total 81920K, used 55877K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 12 young (49152K), 3 survivors (12288K)
+ Metaspace       used 35358K, committed 35904K, reserved 1114112K
+  class space    used 4728K, committed 4992K, reserved 1048576K
+}
+Event: 1.988 GC heap after
+{Heap after GC invocations=12 (full 0):
+ garbage-first heap   total 81920K, used 19542K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 1 survivors (4096K)
+ Metaspace       used 35358K, committed 35904K, reserved 1114112K
+  class space    used 4728K, committed 4992K, reserved 1048576K
+}
+Event: 2.194 GC heap before
+{Heap before GC invocations=12 (full 0):
+ garbage-first heap   total 81920K, used 64598K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 12 young (49152K), 1 survivors (4096K)
+ Metaspace       used 39500K, committed 40064K, reserved 1114112K
+  class space    used 5349K, committed 5568K, reserved 1048576K
+}
+Event: 2.196 GC heap after
+{Heap after GC invocations=13 (full 0):
+ garbage-first heap   total 233472K, used 20469K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 1 survivors (4096K)
+ Metaspace       used 39500K, committed 40064K, reserved 1114112K
+  class space    used 5349K, committed 5568K, reserved 1048576K
+}
+Event: 2.544 GC heap before
+{Heap before GC invocations=13 (full 0):
+ garbage-first heap   total 233472K, used 65525K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 14 young (57344K), 1 survivors (4096K)
+ Metaspace       used 47233K, committed 47808K, reserved 1114112K
+  class space    used 6315K, committed 6528K, reserved 1048576K
+}
+Event: 2.547 GC heap after
+{Heap after GC invocations=14 (full 0):
+ garbage-first heap   total 233472K, used 22348K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 2 young (8192K), 2 survivors (8192K)
+ Metaspace       used 47233K, committed 47808K, reserved 1114112K
+  class space    used 6315K, committed 6528K, reserved 1048576K
+}
+Event: 2.805 GC heap before
+{Heap before GC invocations=15 (full 0):
+ garbage-first heap   total 81920K, used 79692K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 16 young (65536K), 2 survivors (8192K)
+ Metaspace       used 52964K, committed 53632K, reserved 1114112K
+  class space    used 7139K, committed 7424K, reserved 1048576K
+}
+Event: 2.807 GC heap after
+{Heap after GC invocations=16 (full 0):
+ garbage-first heap   total 90112K, used 23808K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 2 young (8192K), 2 survivors (8192K)
+ Metaspace       used 52964K, committed 53632K, reserved 1114112K
+  class space    used 7139K, committed 7424K, reserved 1048576K
+}
+Event: 3.027 GC heap before
+{Heap before GC invocations=16 (full 0):
+ garbage-first heap   total 90112K, used 68864K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 13 young (53248K), 2 survivors (8192K)
+ Metaspace       used 57275K, committed 57920K, reserved 1114112K
+  class space    used 7840K, committed 8128K, reserved 1048576K
+}
+Event: 3.030 GC heap after
+{Heap after GC invocations=17 (full 0):
+ garbage-first heap   total 90112K, used 25366K [0x0000000689800000, 0x0000000800000000)
+  region size 4096K, 2 young (8192K), 2 survivors (8192K)
+ Metaspace       used 57275K, committed 57920K, reserved 1114112K
+  class space    used 7840K, committed 8128K, reserved 1048576K
+}
+
+Dll operation events (12 events):
+Event: 0.006 Loaded shared library C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\java.dll
+Event: 0.025 Loaded shared library C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\zip.dll
+Event: 0.105 Loaded shared library C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\instrument.dll
+Event: 0.108 Loaded shared library C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\net.dll
+Event: 0.109 Loaded shared library C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\nio.dll
+Event: 0.111 Loaded shared library C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\zip.dll
+Event: 0.203 Loaded shared library C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\jimage.dll
+Event: 0.235 Loaded shared library C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\management.dll
+Event: 0.243 Loaded shared library C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\management_ext.dll
+Event: 0.375 Loaded shared library C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\extnet.dll
+Event: 0.390 Loaded shared library C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\verify.dll
+Event: 0.999 Loaded shared library C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\sunmscapi.dll
+
+Deoptimization events (20 events):
+Event: 8.842 Thread 0x000002b1fe8ae4f0 DEOPT PACKING pc=0x000002b1ae88f7f4 sp=0x000000ee88efeed0
+Event: 8.842 Thread 0x000002b1fe8ae4f0 DEOPT UNPACKING pc=0x000002b1addc4e42 sp=0x000000ee88efe3c0 mode 1
+Event: 9.344 Thread 0x000002b1fe8ae4f0 DEOPT PACKING pc=0x000002b1ae890294 sp=0x000000ee88efed20
+Event: 9.344 Thread 0x000002b1fe8ae4f0 DEOPT UNPACKING pc=0x000002b1addc4e42 sp=0x000000ee88efe220 mode 1
+Event: 9.344 Thread 0x000002b1fe8ae4f0 DEOPT PACKING pc=0x000002b1ae88f7f4 sp=0x000000ee88efeed0
+Event: 9.344 Thread 0x000002b1fe8ae4f0 DEOPT UNPACKING pc=0x000002b1addc4e42 sp=0x000000ee88efe3c0 mode 1
+Event: 9.846 Thread 0x000002b1fe8ae4f0 DEOPT PACKING pc=0x000002b1ae890294 sp=0x000000ee88efed20
+Event: 9.846 Thread 0x000002b1fe8ae4f0 DEOPT UNPACKING pc=0x000002b1addc4e42 sp=0x000000ee88efe220 mode 1
+Event: 9.846 Thread 0x000002b1fe8ae4f0 DEOPT PACKING pc=0x000002b1ae88f7f4 sp=0x000000ee88efeed0
+Event: 9.846 Thread 0x000002b1fe8ae4f0 DEOPT UNPACKING pc=0x000002b1addc4e42 sp=0x000000ee88efe3c0 mode 1
+Event: 10.348 Thread 0x000002b1fe8ae4f0 DEOPT PACKING pc=0x000002b1ae890294 sp=0x000000ee88efed20
+Event: 10.348 Thread 0x000002b1fe8ae4f0 DEOPT UNPACKING pc=0x000002b1addc4e42 sp=0x000000ee88efe220 mode 1
+Event: 10.348 Thread 0x000002b1fe8ae4f0 DEOPT PACKING pc=0x000002b1ae88f7f4 sp=0x000000ee88efeed0
+Event: 10.348 Thread 0x000002b1fe8ae4f0 DEOPT UNPACKING pc=0x000002b1addc4e42 sp=0x000000ee88efe3c0 mode 1
+Event: 10.852 Thread 0x000002b1fe8ae4f0 DEOPT PACKING pc=0x000002b1ae890294 sp=0x000000ee88efed20
+Event: 10.852 Thread 0x000002b1fe8ae4f0 DEOPT UNPACKING pc=0x000002b1addc4e42 sp=0x000000ee88efe220 mode 1
+Event: 10.852 Thread 0x000002b1fe8ae4f0 DEOPT PACKING pc=0x000002b1ae88f7f4 sp=0x000000ee88efeed0
+Event: 10.852 Thread 0x000002b1fe8ae4f0 DEOPT UNPACKING pc=0x000002b1addc4e42 sp=0x000000ee88efe3c0 mode 1
+Event: 11.007 Thread 0x000002b1aa1d7100 DEOPT PACKING pc=0x000002b1ae1a3934 sp=0x000000ee867fdf60
+Event: 11.007 Thread 0x000002b1aa1d7100 DEOPT UNPACKING pc=0x000002b1addc4e42 sp=0x000000ee867fd418 mode 0
+
+Classes loaded (20 events):
+Event: 2.674 Loading class java/util/concurrent/CompletableFuture$AltResult
+Event: 2.674 Loading class java/util/concurrent/CompletableFuture$AltResult done
+Event: 2.675 Loading class java/util/concurrent/CompletableFuture$Completion
+Event: 2.675 Loading class java/util/concurrent/CompletableFuture$AsynchronousCompletionTask
+Event: 2.675 Loading class java/util/concurrent/CompletableFuture$AsynchronousCompletionTask done
+Event: 2.675 Loading class java/util/concurrent/CompletableFuture$Completion done
+Event: 2.705 Loading class java/util/concurrent/CancellationException
+Event: 2.705 Loading class java/util/concurrent/CancellationException done
+Event: 2.873 Loading class java/util/ArrayList$ListItr
+Event: 2.873 Loading class java/util/ArrayList$ListItr done
+Event: 2.921 Loading class java/util/AbstractList$SubList
+Event: 2.922 Loading class java/util/AbstractList$SubList done
+Event: 2.930 Loading class java/lang/reflect/AnnotatedArrayType
+Event: 2.930 Loading class java/lang/reflect/AnnotatedArrayType done
+Event: 2.950 Loading class java/lang/foreign/ValueLayout
+Event: 2.950 Loading class java/lang/foreign/MemoryLayout
+Event: 2.950 Loading class java/lang/foreign/MemoryLayout done
+Event: 2.950 Loading class java/lang/foreign/ValueLayout done
+Event: 3.163 Loading class javax/naming/Reference
+Event: 3.163 Loading class javax/naming/Reference done
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (1 events):
+Event: 11.022 Thread 0x000002b1b9300900 redefined class name=com.dev.kevin.controller.ColaboradorController, count=1
+
+Internal exceptions (20 events):
+Event: 2.722 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x000000068b8b0fc8}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x000000068b8b0fc8) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 2.722 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x000000068b8b4800}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x000000068b8b4800) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.007 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x000000068c2d7d68}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeInterface(java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x000000068c2d7d68) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.009 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x000000068c32e2d8}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x000000068c32e2d8) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.009 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x000000068c331cb8}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, int, java.lang.Object, java.lang.Object)'> (0x000000068c331cb8) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.021 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x000000068bdc8678}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x000000068bdc8678) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.024 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x000000068be5c418}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x000000068be5c418) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.024 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x000000068be62840}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, int)'> (0x000000068be62840) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.047 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x00000006a0f3a378}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x00000006a0f3a378) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.050 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x00000006a0f921d8}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000006a0f921d8) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.050 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x00000006a0f96b10}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000006a0f96b10) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.050 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x00000006a0f9b008}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000006a0f9b008) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.069 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/IncompatibleClassChangeError'{0x00000006947e2f30}: Found class java.lang.Object, but interface was expected> (0x00000006947e2f30) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 840]
+Event: 3.077 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x00000006941a5a08}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, int, java.lang.Object, int, java.lang.Object, java.lang.Object)'> (0x00000006941a5a08) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.085 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x0000000694339b98}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, int)'> (0x0000000694339b98) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.085 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x000000069433e1e8}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, int)'> (0x000000069433e1e8) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.085 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x0000000694342220}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x0000000694342220) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.096 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x000000068e1d9090}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeInterface(java.lang.Object, java.lang.Object)'> (0x000000068e1d9090) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.157 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x000000068db67240}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, int, java.lang.Object, int)'> (0x000000068db67240) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3.166 Thread 0x000002b1aa1d7100 Exception <a 'java/lang/NoSuchMethodError'{0x000000068d489188}: 'void java.lang.invoke.Invokers$Holder.invokeExact_MT(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x000000068d489188) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (20 events):
+Event: 3.300 Executing VM operation: get/set locals
+Event: 3.300 Executing VM operation: get/set locals done
+Event: 3.301 Executing VM operation: get/set locals
+Event: 3.301 Executing VM operation: get/set locals done
+Event: 3.301 Executing VM operation: get/set locals
+Event: 3.301 Executing VM operation: get/set locals done
+Event: 3.302 Executing VM operation: get/set locals
+Event: 3.302 Executing VM operation: get/set locals done
+Event: 3.302 Executing VM operation: get/set locals
+Event: 3.302 Executing VM operation: get/set locals done
+Event: 3.303 Executing VM operation: get/set locals
+Event: 3.303 Executing VM operation: get/set locals done
+Event: 11.007 Executing VM operation: ChangeSingleStep
+Event: 11.007 Executing VM operation: ChangeSingleStep done
+Event: 11.007 Executing VM operation: ChangeSingleStep
+Event: 11.007 Executing VM operation: ChangeSingleStep done
+Event: 11.018 Executing VM operation: RedefineClasses
+Event: 11.034 Executing VM operation: RedefineClasses done
+Event: 11.036 Executing VM operation: ChangeSingleStep
+Event: 11.036 Executing VM operation: ChangeSingleStep done
+
+Memory protections (0 events):
+No events
+
+Nmethod flushes (20 events):
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae6e3510
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae408e90
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae63c810
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae676210
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae6feb90
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae73fc90
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae619890
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae61f010
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae6d8390
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae6e2490
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae25af10
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae25bf90
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae25d710
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae1b0690
+Event: 2.559 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae353a90
+Event: 2.560 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae6f3190
+Event: 2.560 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae2aa290
+Event: 2.560 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae3f4090
+Event: 2.560 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae712290
+Event: 2.560 Thread 0x000002b1b9300900 flushing  nmethod 0x000002b1ae7a9990
+
+Events (20 events):
+Event: 0.537 Thread 0x000002b1bc236250 Thread added: 0x000002b1fe8ae4f0
+Event: 0.546 Thread 0x000002b1fe8ae4f0 Thread added: 0x000002b1fe8af8a0
+Event: 0.785 Thread 0x000002b1aa1d7100 Thread added: 0x000002b1fe8ade60
+Event: 0.859 Thread 0x000002b1bc33f650 Thread added: 0x000002b1fee12570
+Event: 0.859 Thread 0x000002b1bc33f650 Thread added: 0x000002b1fefd2540
+Event: 0.983 Thread 0x000002b1aa1d7100 Thread added: 0x000002b1fe8b05c0
+Event: 0.999 Thread 0x000002b1fe8b05c0 Thread exited: 0x000002b1fe8b05c0
+Event: 1.007 Thread 0x000002b1fe8ade60 Thread exited: 0x000002b1fe8ade60
+Event: 1.756 Thread 0x000002b1aa1d7100 Thread added: 0x000002b1fe8b12e0
+Event: 1.756 Thread 0x000002b1fe8b12e0 Thread added: 0x000002b1fe8aeb80
+Event: 1.759 Thread 0x000002b1aa1d7100 Thread added: 0x000002b1fe8ade60
+Event: 1.772 Thread 0x000002b1aa1d7100 Thread added: 0x000002b1fe8b1970
+Event: 2.412 Thread 0x000002b1aa1d7100 Thread added: 0x000002b1fe8b2000
+Event: 2.521 Thread 0x000002b1fe8b2000 Thread added: 0x000002b1fe8b0c50
+Event: 4.176 Thread 0x000002b1fee12570 Thread exited: 0x000002b1fee12570
+Event: 4.176 Thread 0x000002b1fefd2540 Thread exited: 0x000002b1fefd2540
+Event: 4.678 Thread 0x000002b1bc34dec0 Thread exited: 0x000002b1bc34dec0
+Event: 5.229 Thread 0x000002b1bc33f650 Thread exited: 0x000002b1bc33f650
+Event: 6.752 Thread 0x000002b1bc33efb0 Thread exited: 0x000002b1bc33efb0
+Event: 7.947 Thread 0x000002b1fe8b0c50 Thread exited: 0x000002b1fe8b0c50
+
+
+Dynamic libraries:
+0x00007ff629c30000 - 0x00007ff629c3e000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\javaw.exe
+0x00007ffb18c20000 - 0x00007ffb18e82000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffb17480000 - 0x00007ffb17546000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffb160d0000 - 0x00007ffb16470000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffb16650000 - 0x00007ffb1679c000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffaf5140000 - 0x00007ffaf5158000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\jli.dll
+0x00007ffaf38f0000 - 0x00007ffaf390e000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\VCRUNTIME140.dll
+0x00007ffb17060000 - 0x00007ffb17221000 	C:\Windows\System32\USER32.dll
+0x00007ffb16910000 - 0x00007ffb16937000 	C:\Windows\System32\win32u.dll
+0x00007ffb00220000 - 0x00007ffb004b0000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.712_none_4446894f1c2e6cc3\COMCTL32.dll
+0x00007ffb17b70000 - 0x00007ffb17b9a000 	C:\Windows\System32\GDI32.dll
+0x00007ffb16480000 - 0x00007ffb165a1000 	C:\Windows\System32\gdi32full.dll
+0x00007ffb173d0000 - 0x00007ffb17479000 	C:\Windows\System32\msvcrt.dll
+0x00007ffb16860000 - 0x00007ffb16903000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffb16ca0000 - 0x00007ffb16ccf000 	C:\Windows\System32\IMM32.DLL
+0x00007ffb0d1e0000 - 0x00007ffb0d1ec000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\vcruntime140_1.dll
+0x00007ffac7d40000 - 0x00007ffac7dcd000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\msvcp140.dll
+0x00007ffac6e30000 - 0x00007ffac7bbf000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\server\jvm.dll
+0x00007ffb17550000 - 0x00007ffb17602000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffb18030000 - 0x00007ffb180d7000 	C:\Windows\System32\sechost.dll
+0x00007ffb18340000 - 0x00007ffb18456000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffb17fb0000 - 0x00007ffb18024000 	C:\Windows\System32\WS2_32.dll
+0x00007ffb15ef0000 - 0x00007ffb15f3e000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ffb08f20000 - 0x00007ffb08f56000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffb0d550000 - 0x00007ffb0d55b000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffb15ed0000 - 0x00007ffb15ee4000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ffb14f20000 - 0x00007ffb14f3a000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffb11cd0000 - 0x00007ffb11cda000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\jimage.dll
+0x00007ffb13af0000 - 0x00007ffb13d31000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffb16ce0000 - 0x00007ffb17055000 	C:\Windows\System32\combase.dll
+0x00007ffb17d00000 - 0x00007ffb17dd6000 	C:\Windows\System32\OLEAUT32.dll
+0x00007ffb03990000 - 0x00007ffb039c9000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffb165b0000 - 0x00007ffb16649000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffaee1d0000 - 0x00007ffaee20c000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\jdwp.dll
+0x00007ffb115a0000 - 0x00007ffb115af000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\instrument.dll
+0x00007ffb115b0000 - 0x00007ffb115cf000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\java.dll
+0x00007ffb184f0000 - 0x00007ffb18bd6000 	C:\Windows\System32\SHELL32.dll
+0x00007ffb13ed0000 - 0x00007ffb146ef000 	C:\Windows\SYSTEM32\windows.storage.dll
+0x00007ffb17a90000 - 0x00007ffb17b63000 	C:\Windows\System32\SHCORE.dll
+0x00007ffb182e0000 - 0x00007ffb1833d000 	C:\Windows\System32\shlwapi.dll
+0x00007ffb15f70000 - 0x00007ffb15f94000 	C:\Windows\SYSTEM32\profapi.dll
+0x00007ffb100a0000 - 0x00007ffb100b8000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\zip.dll
+0x00007ffb03640000 - 0x00007ffb0364b000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\dt_socket.dll
+0x00007ffb14980000 - 0x00007ffb149b0000 	C:\Windows\SYSTEM32\IPHLPAPI.DLL
+0x00007ffb153e0000 - 0x00007ffb15448000 	C:\Windows\system32\mswsock.dll
+0x00007ffb14a00000 - 0x00007ffb14b1d000 	C:\Windows\SYSTEM32\DNSAPI.dll
+0x00007ffb17e90000 - 0x00007ffb17e9a000 	C:\Windows\System32\NSI.dll
+0x0000000057a80000 - 0x0000000057aa6000 	C:\Program Files\Bonjour\mdnsNSP.dll
+0x00007ffb0c880000 - 0x00007ffb0c88b000 	C:\Windows\System32\rasadhlp.dll
+0x00007ffb0d7c0000 - 0x00007ffb0d846000 	C:\Windows\System32\fwpuclnt.dll
+0x00007ffb11740000 - 0x00007ffb11750000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\net.dll
+0x00007ffb10a60000 - 0x00007ffb10b86000 	C:\Windows\SYSTEM32\WINHTTP.dll
+0x00007ffb0de00000 - 0x00007ffb0de16000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\nio.dll
+0x00007ffafd7f0000 - 0x00007ffafd7fa000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\management.dll
+0x00007ffafbe40000 - 0x00007ffafbe4b000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\management_ext.dll
+0x00007ffb16c90000 - 0x00007ffb16c98000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffafec80000 - 0x00007ffafec98000 	C:\Windows\system32\napinsp.dll
+0x00007ffafec60000 - 0x00007ffafec72000 	C:\Windows\System32\winrnr.dll
+0x00007ffafec30000 - 0x00007ffafec52000 	C:\Windows\system32\nlansp_c.dll
+0x00007ffb0dff0000 - 0x00007ffb0e006000 	C:\Windows\system32\wshbth.dll
+0x00007ffb15660000 - 0x00007ffb1567c000 	C:\Windows\SYSTEM32\CRYPTSP.dll
+0x00007ffb14e80000 - 0x00007ffb14eb8000 	C:\Windows\system32\rsaenh.dll
+0x00007ffb15480000 - 0x00007ffb154ab000 	C:\Windows\SYSTEM32\USERENV.dll
+0x00007ffb158b0000 - 0x00007ffb158d6000 	C:\Windows\SYSTEM32\bcrypt.dll
+0x00007ffb15680000 - 0x00007ffb1568c000 	C:\Windows\SYSTEM32\CRYPTBASE.dll
+0x00007ffb0ddf0000 - 0x00007ffb0ddf9000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\extnet.dll
+0x00007ffb116d0000 - 0x00007ffb116e0000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\verify.dll
+0x00007ffb10090000 - 0x00007ffb1009e000 	C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\sunmscapi.dll
+0x00007ffb16940000 - 0x00007ffb16ab6000 	C:\Windows\System32\CRYPT32.dll
+0x00007ffb15870000 - 0x00007ffb158a0000 	C:\Windows\SYSTEM32\ncrypt.dll
+0x00007ffb15820000 - 0x00007ffb1585f000 	C:\Windows\SYSTEM32\NTASN1.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.712_none_4446894f1c2e6cc3;C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin\server;C:\Program Files\Bonjour
+
+VM Arguments:
+jvm_args: -XX:+ShowCodeDetailsInExceptionMessages -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:57639 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=57635 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -Dspring.application.admin.enabled=true -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=Backend -javaagent:C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\configuration\org.eclipse.osgi\275\0\.cp\lib\javaagent-shaded.jar -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 
+java_command: com.dev.kevin.BackendApplication --spring.output.ansi.enabled=always
+java_class_path (initial): C:\Users\Kevin\Documents\SpringBoot\Kevin\Backend\target\classes;C:\Users\Kevin\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.4.2\spring-boot-starter-data-jpa-3.4.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\boot\spring-boot-starter\3.4.2\spring-boot-starter-3.4.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\boot\spring-boot\3.4.2\spring-boot-3.4.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.4.2\spring-boot-autoconfigure-3.4.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.4.2\spring-boot-starter-logging-3.4.2.jar;C:\Users\Kevin\.m2\repository\ch\qos\logback\logback-classic\1.5.16\logback-classic-1.5.16.jar;C:\Users\Kevin\.m2\repository\ch\qos\logback\logback-core\1.5.16\logback-core-1.5.16.jar;C:\Users\Kevin\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\Kevin\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\Kevin\.m2\repository\org\slf4j\jul-to-slf4j\2.0.16\jul-to-slf4j-2.0.16.jar;C:\Users\Kevin\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\Kevin\.m2\repository\org\yaml\snakeyaml\2.3\snakeyaml-2.3.jar;C:\Users\Kevin\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.4.2\spring-boot-starter-jdbc-3.4.2.jar;C:\Users\Kevin\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\Kevin\.m2\repository\org\springframework\spring-jdbc\6.2.2\spring-jdbc-6.2.2.jar;C:\Users\Kevin\.m2\repository\org\hibernate\orm\hibernate-core\6.6.5.Final\hibernate-core-6.6.5.Final.jar;C:\Users\Kevin\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\Kevin\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Kevin\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\Kevin\.m2\repository\org\hibernate\common\hibernate-commons-annotations\7.0.3.Final\hibernate-commons-annotations-7.0.3.Final.jar;C:\Users\Kevin\.m2\repository\io\smallrye\jandex\3.2.0\jandex-3.2.0.jar;C:\Users\Kevin\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\Kevin\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\Kevin\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\Kevin\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\Kevin\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\Kevin\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\Kevin\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Kevin\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Kevin\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\Kevin\.m2\repository\org\springframework\data\spring-data-jpa\3.4.2\spring-data-jpa-3.4.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\data\spring-data-commons\3.4.2\spring-data-commons-3.4.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\spring-orm\6.2.2\spring-orm-6.2.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\spring-context\6.2.2\spring-context-6.2.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\spring-aop\6.2.2\spring-aop-6.2.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\spring-tx\6.2.2\spring-tx-6.2.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\spring-beans\6.2.2\spring-beans-6.2.2.jar;C:\Users\Kevin\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\Kevin\.m2\repository\org\springframework\spring-aspects\6.2.2\spring-aspects-6.2.2.jar;C:\Users\Kevin\.m2\repository\org\aspectj\aspectjweaver\1.9.22.1\aspectjweaver-1.9.22.1.jar;C:\Users\Kevin\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.4.2\spring-boot-starter-web-3.4.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.4.2\spring-boot-starter-json-3.4.2.jar;C:\Users\Kevin\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.18.2\jackson-databind-2.18.2.jar;C:\Users\Kevin\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.18.2\jackson-annotations-2.18.2.jar;C:\Users\Kevin\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.18.2\jackson-core-2.18.2.jar;C:\Users\Kevin\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.18.2\jackson-datatype-jdk8-2.18.2.jar;C:\Users\Kevin\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.18.2\jackson-datatype-jsr310-2.18.2.jar;C:\Users\Kevin\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.18.2\jackson-module-parameter-names-2.18.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.4.2\spring-boot-starter-tomcat-3.4.2.jar;C:\Users\Kevin\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.34\tomcat-embed-core-10.1.34.jar;C:\Users\Kevin\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.34\tomcat-embed-el-10.1.34.jar;C:\Users\Kevin\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.34\tomcat-embed-websocket-10.1.34.jar;C:\Users\Kevin\.m2\repository\org\springframework\spring-web\6.2.2\spring-web-6.2.2.jar;C:\Users\Kevin\.m2\repository\io\micrometer\micrometer-observation\1.14.3\micrometer-observation-1.14.3.jar;C:\Users\Kevin\.m2\repository\io\micrometer\micrometer-commons\1.14.3\micrometer-commons-1.14.3.jar;C:\Users\Kevin\.m2\repository\org\springframework\spring-webmvc\6.2.2\spring-webmvc-6.2.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\spring-expression\6.2.2\spring-expression-6.2.2.jar;C:\Users\Kevin\.m2\repository\com\mysql\mysql-connector-j\9.1.0\mysql-connector-j-9.1.0.jar;C:\Users\Kevin\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\Kevin\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\Kevin\.m2\repository\org\springframework\spring-core\6.2.2\spring-core-6.2.2.jar;C:\Users\Kevin\.m2\repository\org\springframework\spring-jcl\6.2.2\spring-jcl-6.2.2.jar;C:\Users\Kevin\.m2\repository\org\mindrot\jbcrypt\0.4\jbcrypt-0.4.jar;C:\Users\Kevin\.m2\repository\org\springframework\boot\spring-boot-starter-thymeleaf\3.4.2\spring-boot-starter-thymeleaf-3.4.2.jar;C:\Users\Kevin\.m2\repository\org\thymeleaf\thymeleaf-spring6\3.1.3.RELEASE\thymeleaf-spring6-3.1.3.RELEASE.jar;C:\Users\Kevin\.m2\repository\org\thymeleaf\thymeleaf\3.1.3.RELEASE\thymeleaf-3.1.3.RELEASE.jar;C:\Users\Kevin\.m2\repository\org\attoparser\attoparser\2.0.7.RELEASE\attoparser-2.0.7.RELEASE.jar;C:\Users\Kevin\.m2\repository\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 12                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 13                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 4194304                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 394264576                                 {product} {ergonomic}
+     bool ManagementServer                         = true                                      {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 6283067392                                {product} {ergonomic}
+   size_t MaxNewSize                               = 3766484992                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 4194304                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 4096                                   {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 0                                      {pd product} {ergonomic}
+     bool ProfileInterpreter                       = false                                  {pd product} {command line}
+    uintx ProfiledCodeHeapSize                     = 0                                      {pd product} {ergonomic}
+     bool ShowCodeDetailsInExceptionMessages       = true                                   {manageable} {command line}
+   size_t SoftMaxHeapSize                          = 6283067392                             {manageable} {ergonomic}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Program FIles\ Java\jdk-23
+PATH=C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin;C:/Users/Kevin/Documents/SpringBoot/sts-4.27.0.RELEASE//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957/jre/bin/server;C:/Users/Kevin/Documents/SpringBoot/sts-4.27.0.RELEASE//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957/jre/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\MongoDB\Server\8.0\bin;C:\Users\Kevin\AppData\Local\Programs\mongosh\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Kevin\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk-23\bin;C:\Users\Kevin\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Kevin\AppData\Local\Programs\mongosh\;;C:\Users\Kevin\Documents\SpringBoot\sts-4.27.0.RELEASE;
+USERNAME=Kevin
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
+TMP=C:\Users\Kevin\AppData\Local\Temp
+TEMP=C:\Users\Kevin\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 26100 (10.0.26100.712)
+OS uptime: 0 days 5:48 hours
+
+CPU: total 16 (initial active 16) (16 cores per cpu, 2 threads per core) family 25 model 80 stepping 0 microcode 0xa50000d, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, rdtscp, rdpid, fsrm, f16c, pku, cet_ss
+Processor Information for all 16 processors :
+  Max Mhz: 3801, Current Mhz: 3801, Mhz Limit: 3801
+
+Memory: 4k page, system-wide physical 23953M (12935M free)
+TotalPageFile size 25489M (AvailPageFile size 9878M)
+current process WorkingSet (physical memory assigned to process): 247M, peak: 275M
+current process commit charge ("private bytes"): 288M, peak: 510M
+
+vm_info: OpenJDK 64-Bit Server VM (21.0.5+11-LTS) for windows-amd64 JRE (21.0.5+11-LTS), built on 2024-10-15T00:00:00Z by "admin" with MS VC++ 17.7 (VS2022)
+
+END.

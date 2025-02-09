@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Colaborador</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #000000;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #f7f7f7;
+            color: #000000;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #f7f7f7;
+            color: #000000;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Cadastro de Colaborador</h2>
+    </header>
+
+    <div class="container">
+        
+        <!-- Exibe mensagem de erro se houver algum -->
+        <div th:if="${mensagemErro}" class="error-message">
+            <p th:text="${mensagemErro}"></p>
+        </div>
+
+        <form action="/colaborador/salvar" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" required><br>
+
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" required><br>
+
+            <!-- Campo para o Setor (agora é um <select>) -->
+            <label for="setor">Setor:</label>
+            <select name="setor" required>
+                <option value="">Selecione o Setor</option>
+                <option value="Financeiro">Financeiro</option>
+                <option value="RH">Recursos Humanos</option>
+                <option value="TI">Tecnologia da Informação</option>
+                <option value="Marketing">Marketing</option>
+                <!-- Adicione outros setores conforme necessário -->
+            </select><br>
+
+            <button type="submit">Salvar</button>
+        </form>
+
+        <br>
+        <!-- Botão para retornar à lista de colaboradores -->
+ 	<a href="/colaborador/listar" class="add-button">Voltar à Lista</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Chefes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000000; /* Cor do Corinthians */
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #000000; /* Cabeçalho em preto */
+            color: white; /* Texto branco no cabeçalho */
+        }
+
+        tr:hover {
+            background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
+        }
+
+        .delete-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: red; /* Cor de fundo vermelha para excluir */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .delete-button:hover {
+            background-color: #cc0000; /* Tom mais escuro ao passar o mouse */
+        }
+
+        .add-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000000; /* Botão com fundo preto */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .add-button:hover {
+            background-color: #333333; /* Fundo mais escuro ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Lista de Chefes</h2>
+    </header>
+
+    <div class="container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Setor</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="chefe : ${chefes}">
+                    <td th:text="${chefe.idChefe}"></td>
+                    <td th:text="${chefe.nome}"></td>
+                    <td th:text="${chefe.setor}"></td>
+                    <td>
+                        <!-- Formulário para excluir o chefe -->
+                        <form th:action="@{/chefe/excluir/{idChefe}(idChefe=${chefe.idChefe})}" method="post">
+                            <button type="submit" class="delete-button">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="/colaborador/listar" class="add-button">Voltar para a Lista de Colaboradores</a>
+
+
+    </div>
+
+</body>
+</html>
